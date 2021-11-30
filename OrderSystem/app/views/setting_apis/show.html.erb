@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Email access:</strong>
+  <%= @setting_api.email_access %>
+</p>
+
+<p>
+  <strong>Token access:</strong>
+  <%= @setting_api.token_access %>
+</p>
+
+<%= link_to 'Edit', edit_setting_api_path(@setting_api) %> |
+<%= link_to 'Back', setting_apis_path %>

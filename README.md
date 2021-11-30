@@ -3,6 +3,7 @@ Pitzi - Ruby Coding Challenge
 
 PROJECTS:
 1-) ApiService - Web service to manager clients and orders
+[port:3000]
 Gems:
 Devise
 Devise Simple Token
@@ -10,6 +11,8 @@ Rack Cors
 Rack Attack
 
 2-) OrderSystem - System with interface user to register clients and orders
+[port:3001]
+
 ------------------
 Doc Postman API view:
 Api.postman_collection.json

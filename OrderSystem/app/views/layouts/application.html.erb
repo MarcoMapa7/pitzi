@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>OrderSystem - Desenvolvido por Marco Mapa</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+      <link rel="shortcut icon" href="/img/favicon.png">
+  </head>
+
+  <body>
+  <center>
+    <p><a href="javascript:history.back()"><- Back</a></p>
+    <%= yield %>
+  </center>
+
+    <div class="footer">
+      Desenvolvido por : <br>
+      <a href="https://www.marcomapa.com" target="_blank">
+        <img src="https://www.marcomapa.com/img/mapa.png"/></a>
+    </div>
+  </body>
+</html>

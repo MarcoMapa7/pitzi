@@ -1,0 +1,27 @@
+<%= form_with(model: setting_api) do |form| %>
+  <% if setting_api.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(setting_api.errors.count, "error") %> prohibited this setting_api from being saved:</h2>
+
+      <ul>
+        <% setting_api.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :email_access %>
+    <%= form.text_field :email_access %>
+  </div>
+
+  <div class="field">
+    <%= form.label :token_access %>
+    <%= form.text_field :token_access %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,22 @@
+<h1>Manage Clients</h1>
+<hr class="divisory">
+<table>
+  <tr>
+    <td colspan="4">Qty Registers: <b><%= @clients.count %></b></td>
+  </tr>
+  <tr>
+    <td colspan="4"><hr></td>
+  </tr>
+<% @clients.each do |c| %>
+  <tr>
+    <td><%= c['name'] %></td>
+    <td><%= c['mail'] %></td>
+    <td><%= link_to "Edit", "/edit-client/#{c['id']}"%></td>
+    <td><%= link_to "Remove", "/remove-client/#{c['id']}"%></td>
+  </tr>
+  <tr>
+    <td colspan="4"><hr></td>
+  </tr>
+<% end %>
+</table>
+<hr class="divisory">
