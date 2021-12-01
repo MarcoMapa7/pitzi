@@ -1,0 +1,31 @@
+<h1>Manage Orders</h1>
+<hr class="divisory">
+<table>
+  <tr>
+    <td colspan="6">Qty Registers: <b><%= @orders['msg'].count %></b></td>
+  </tr>
+  <tr>
+    <td colspan="6"><hr></td>
+  </tr>
+  <td>User</td>
+  <td>Device</td>
+  <td>Annual Value</td>
+  <td>Qty Installments</td>
+<% @orders['msg'].each do |o| %>
+  <tr>
+    <td><%= o['user_id'] %></td>
+    <td><%= o['device_model'] %></td>
+    <td><%= o['annual_value'] %></td>
+    <td><%= o['qty_installments'] %></td>
+    <td><%= link_to "Edit", "/home/edit-order/#{o['id']}"%></td>
+    <td><%= link_to "Remove", "/home/remove-order/#{o['id']}"%></td>
+  </tr>
+  <tr>
+    <td colspan="6"><hr></td>
+  </tr>
+<% end %>
+<tr>
+  <td colspan="6" align="center"><a href="/home/new-order">New Order</a></td>
+</tr>
+</table>
+<hr class="divisory">

@@ -1,0 +1,54 @@
+<h1>Edit Order</h1>
+<hr class="divisory">
+<form id="new_order" name="new_order" action="/home/orders" method="put">
+    <input type="hidden" id="id" name="id" value="<%=@order['msg']['order']['id']%>">
+  <table>
+    <tr>
+      <td>Client ID: </td> <td>
+        <select name="user_id" id="user_id">
+          <% @clients['msg'].each do |c| %>
+            <option <%=c['id'] == @order['msg']['order']['user_id'] ? 'selected' : '' %> value="<%= c['id'] %>">
+              <%= c['name'] %></option>
+          <% end %>
+        </select>
+    </tr>
+    <tr>
+      <td>Device Model: </td> <td><input type="text" id="device_model" name="device_model" value="<%=@order['msg']['order']['device_model']%>"></td>
+    </tr>
+    <tr>
+      <td>IMEI: </td> <td><input type="text" id="IMEI_device" name="IMEI_device" value="<%=@order['msg']['order']['IMEI_device']%>"></td>
+    </tr>
+    <tr>
+      <td>Annual Value: </td> <td><input type="text" id="annual_value" name="annual_value" value="<%=@order['msg']['order']['annual_value']%>"></td>
+    </tr>
+    <tr>
+      <td>Qty Installments: </td> <td><input type="text" id="qty_installments" name="qty_installments" value="<%=@order['msg']['order']['qty_installments']%>"></td>
+    </tr>
+  </table>
+  <button type="submit" value="Submit">Edit Order</button>
+</form>
+<hr class="divisory">
+<script>
+$("#new_order").submit(function(e) {
+    var form = $(this);
+    var url = form.attr('action');
+
+    $.ajax({
+           type: "PUT",
+           url: url,
+           data: form.serialize(),
+           success: function(data)
+           {
+    if (data['status'] == '422' || data['status'] == '500'){
+      swal('Error!', JSON.stringify(data['msg']), "error");
+    }else{
+      swal('Good Job!', 'Order Edited Successful', "success");
+    window.setTimeout( function(){
+             window.location = "/home/orders";
+         }, 1000 );
+                }
+               }
+             });
+        e.preventDefault();
+    });
+</script>

@@ -9,7 +9,7 @@ class Api::V1::OrdersController < Api::V1::ApiController
 
  # GET /api/v1/orders/1.json
  def show
-   render json: @order
+   render json: {'order':@order, 'client':Client.find(@order.user_id)}
  end
 
  # POST /api/v1/orders.json
