@@ -18,9 +18,9 @@ module ApiHelper
 
     request['X-User-Email'] = SettingApi.last.email_access
     request['X-User-Token'] = SettingApi.last.token_access
-    # request.set_form_data({"params" => 123})
+    request.set_form_data(params)
 
     response = http.request(request)
-    JSON.parse(response.body)
+    {'status'=> response.header.code, 'msg' => response.body.present? ? JSON.parse(response.body) : nil}
   end
 end

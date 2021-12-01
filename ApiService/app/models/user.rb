@@ -5,5 +5,4 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
  acts_as_token_authenticatable
- before_save { self.email = email.downcase }
 end

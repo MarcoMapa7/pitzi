@@ -2,21 +2,28 @@
 <hr class="divisory">
 <table>
   <tr>
-    <td colspan="4">Qty Registers: <b><%= @clients.count %></b></td>
+    <td colspan="5">Qty Registers: <b><%= @clients['msg'].count %></b></td>
   </tr>
   <tr>
-    <td colspan="4"><hr></td>
+    <td colspan="5"><hr></td>
   </tr>
-<% @clients.each do |c| %>
+  <td>Name</td>
+  <td>E-mail</td>
+  <td>CPF</td>
+<% @clients['msg'].each do |c| %>
   <tr>
     <td><%= c['name'] %></td>
     <td><%= c['mail'] %></td>
-    <td><%= link_to "Edit", "/edit-client/#{c['id']}"%></td>
-    <td><%= link_to "Remove", "/remove-client/#{c['id']}"%></td>
+    <td><%= c['document'] %></td>
+    <td><%= link_to "Edit", "/home/edit-client/#{c['id']}"%></td>
+    <td><%= link_to "Remove", "/home/remove-client/#{c['id']}"%></td>
   </tr>
   <tr>
-    <td colspan="4"><hr></td>
+    <td colspan="5"><hr></td>
   </tr>
 <% end %>
+<tr>
+  <td colspan="5" align="center"><a href="/home/new-client">New Client</a></td>
+</tr>
 </table>
 <hr class="divisory">
